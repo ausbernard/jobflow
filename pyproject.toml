@@ -1,0 +1,37 @@
+[build-system]
+requires = ['hatchling>=1.27.0']
+build-backend = 'hatchling.build'
+
+[project]
+name = "flask-job-orchestrator"
+version = "0.1.0"
+requires-python = ">=3.10"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Austin" }]
+
+# Runtime deps (keeps this small)
+dependencies = ["flask>=3.0", "pydantic>=2.8"]
+
+[project.optional-dependencies]
+# Developer extras installed with `pip install -e ".[dev]"
+dev = [
+    "pytest",
+    "pytest-cov",
+    "black",
+    "ruff",
+    "httpx",
+    "pre-commit"
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.black]
+line-length = 100
+
+[tool.ruff]
+line-length = 100
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/app"]
