@@ -26,8 +26,6 @@ dev = [
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-python_files = test_*.py
-addopts = --maxfail=1 -q
 
 [tool.black]
 line-length = 100
